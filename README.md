@@ -36,17 +36,7 @@
 
 ## Pipeline
 
-```mermaid
-flowchart LR
-    A["ted.com listing pages<br/>(4 duration buckets)"] -->|parse HTML| B["7,352 talk URLs<br/>deduplicated"]
-    B -->|scrape each talk page| C["Metadata + transcripts<br/>views, topics, speakers, dates"]
-    C --> D["Speaker table<br/>+ Wikipedia matching"]
-    C --> E["Preprocessing<br/>cleaning, text & sentiment features,<br/>views/day target"]
-    D --> E
-    E --> F["EDA"]
-    E --> G["Temporal split<br/>BorderlineSMOTE + undersampling"]
-    G --> H["LogReg / XGBoost<br/>PR-AUC, cumulative gain"]
-```
+<p align="center"><img src="figures/pipeline.jpg" alt="Pipeline: collect, scrape, enrich, engineer, model" width="100%"></p>
 
 ## Data collection
 
